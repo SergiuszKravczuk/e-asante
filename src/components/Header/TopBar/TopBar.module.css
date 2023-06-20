@@ -1,0 +1,62 @@
+.container {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  color: #fff;
+  text-transform: uppercase;
+  font-family: "Open Sans", "sans-serif";
+  line-height: 40px;
+  overflow: hidden;
+}
+.firstBanner,
+.secondBanner {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  top: 0;
+}
+.firstBanner {
+  background-color: #000;
+  left: 0;
+  animation: firstBanner 10s linear infinite normal both;
+}
+.secondBanner {
+  background-color: #81c7dc;
+  left: -100%;
+  animation: secondBanner 10s linear infinite normal both;
+}
+@keyframes firstBanner {
+  0% {
+    left: 0;
+  }
+  52% {
+    left: 0;
+  }
+  55% {
+    left: 100%;
+  }
+  97% {
+    left: 100%;
+  }
+  100% {
+    left: 0;
+  }
+}
+@keyframes secondBanner {
+  0% {
+    left: -100%;
+  }
+  52% {
+    left: -100%;
+  }
+  55% {
+    left: 0;
+  }
+  97% {
+    left: 0;
+  }
+  100% {
+    left: -100%;
+  }
+}

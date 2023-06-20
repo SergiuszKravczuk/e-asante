@@ -1,0 +1,19 @@
+.wishlist {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 1.3rem 0 2rem 1.5rem;
+  color: #000;
+  font-size: 1.2rem;
+  cursor: pointer;
+  width: 50px;
+  width: 100%;
+}
+.whishlist__icon {
+  font-size: 1.7rem;
+  margin-right: 0.5rem;
+  transition: transform linear 0.2s;
+}
+.wishlist:hover > .whishlist__icon {
+  transform: scale(1.2);
+}

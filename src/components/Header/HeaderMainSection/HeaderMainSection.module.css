@@ -1,0 +1,11 @@
+.container {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 90%;
+  max-width: 1440px;
+  margin: 0.5rem auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

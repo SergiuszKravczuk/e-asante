@@ -1,0 +1,33 @@
+.container {
+  width: 100%;
+  height: 100vh;
+  background-image: url(/img/errorPageSmall.webp);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+.message {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90vw;
+  height: 150px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 8px;
+  padding: 10px;
+}
+.message h2 {
+  font-size: 2rem;
+  text-transform: uppercase;
+  color: #fff;
+}
+.message p {
+  color: #fff;
+  margin-top: 5px;
+}
+@media (min-width: 640px) {
+  .container {
+    background-image: url(/img/errorPageFull.webp);
+  }
+}

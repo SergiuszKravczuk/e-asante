@@ -1,0 +1,14 @@
+.container {
+  font-size: 1.7rem;
+  cursor: pointer;
+  transition: transform 0.2s linear;
+  z-index: 20;
+}
+.container:hover {
+  transform: scale(1.2);
+}
+@media (min-width: 1220px) {
+  .menu {
+    display: none;
+  }
+}

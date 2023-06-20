@@ -1,0 +1,41 @@
+.container {
+  position: absolute;
+  top: 100%;
+  left: -106%;
+  width: 100%;
+  max-width: 400px;
+  background-color: #f9f9f9;
+  transition: left linear 0.2s 0.2s;
+  overflow-x: hidden;
+  z-index: 20;
+}
+.linkContainer {
+  position: relative;
+  min-height: 50vh;
+  height: 100%;
+  width: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.active {
+  left: -5vw;
+}
+.link {
+  display: block;
+  width: 100%;
+  padding: 0.7rem 0 0.7rem 1.5rem;
+  color: #474747;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+.link:hover {
+  background-color: #f2f2f2;
+}
+.subLink {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.subLink__icon {
+  margin-right: 0.5rem;
+}

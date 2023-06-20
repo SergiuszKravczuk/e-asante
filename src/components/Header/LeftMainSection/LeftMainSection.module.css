@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.container div {
+  font-size: 1.7rem;
+  cursor: pointer;
+  transition: transform 0.2s linear;
+}
+.container div:hover {
+  transform: scale(1.2);
+}
+.wishList {
+  display: none;
+}
+.searchBar {
+  margin-left: 0.5rem;
+}
+@media (min-width: 990px) {
+  .wishList {
+    display: block;
+    margin-left: 1rem;
+  }
+}
