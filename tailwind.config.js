@@ -14,6 +14,7 @@ module.exports = {
       colors: {
         lblue: "#81C7DC",
         dGray: "#474747",
+        sldBg: "#ECECEC",
       },
       transitionDuration: {
         200: "200ms",

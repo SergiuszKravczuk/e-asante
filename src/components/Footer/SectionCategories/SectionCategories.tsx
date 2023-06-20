@@ -1,12 +1,19 @@
 "use client";
 import { BiDownArrow, BiUpArrow } from "react-icons/bi";
 import { useState } from "react";
+import Link from "next/link";
+import { title } from "process";
 
-const SectionCategories = () => {
+interface SectionCategoriesInt {
+  footerCategories: any;
+}
+
+const SectionCategories = ({ footerCategories }: SectionCategoriesInt) => {
   const [isCliked, setIsCliked] = useState<boolean>(false);
   const onClickHandler = () => {
     setIsCliked(!isCliked);
   };
+
   return (
     <div className="w-11/12 mx-auto my-8 md:w-1/4 md:mt-2">
       <div
@@ -25,18 +32,14 @@ const SectionCategories = () => {
           isCliked ? "block" : "hidden"
         } duration-200 ease-linear md:block`}
       >
-        <li className="my-4 cursor-pointer hover:text-gray-300 duration-200 ease-linear">
-          Test1
-        </li>
-        <li className="my-4 cursor-pointer hover:text-gray-300 duration-200 ease-linear">
-          Test2
-        </li>
-        <li className="my-4 cursor-pointer hover:text-gray-300 duration-200 ease-linear">
-          Test3
-        </li>
-        <li className="my-4 cursor-pointer hover:text-gray-300 duration-200 ease-linear">
-          Test4
-        </li>
+        {footerCategories.map((el: any) => (
+          <li
+            className="my-4 cursor-pointer hover:text-gray-300 duration-200 ease-linear"
+            key={el.ID}
+          >
+            <Link href={`category/${el.ID}`}>{el.title}</Link>
+          </li>
+        ))}
       </ul>
     </div>
   );

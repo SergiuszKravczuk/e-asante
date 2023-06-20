@@ -5,8 +5,7 @@ import Image from "next/image";
 import classes from "./Navigation.module.css";
 import { usePathname } from "next/navigation";
 import { BiDownArrow, BiUpArrow } from "react-icons/bi";
-import { useState } from "react";
-import NavigationDropDown from "./NavigationDropDown";
+import MoreDropDown from "./MoreDropDown";
 
 interface NavigationInt {
   onHoverHome: boolean;
@@ -68,15 +67,22 @@ const Navigation = (props: NavigationInt) => {
       >
         Kontakt
       </Link>
-      <div
-        className={`${classes.link} flex justify-between items-center`}
-        onMouseEnter={props.onMouseEnterMoreHandeler}
-        onMouseLeave={props.onMouseLeaveMoreHandler}
-      >
-        <p>Więcej</p>
-        <div className="text-sm ml-1">
-          {props.onHoverMore ? <BiUpArrow /> : <BiDownArrow />}
+      <div>
+        <div
+          className={`${classes.link} flex justify-between items-center relative`}
+          onMouseEnter={props.onMouseEnterMoreHandeler}
+          onMouseLeave={props.onMouseLeaveMoreHandler}
+        >
+          <p>Więcej</p>
+          <div className="text-sm ml-1">
+            {props.onHoverMore ? <BiUpArrow /> : <BiDownArrow />}
+          </div>
         </div>
+        <MoreDropDown
+          onHoverMore={props.onHoverMore}
+          onMouseEnterMoreHandeler={props.onMouseEnterMoreHandeler}
+          onMouseLeaveMoreHandler={props.onMouseLeaveMoreHandler}
+        />
       </div>
     </nav>
   );

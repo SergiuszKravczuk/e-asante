@@ -20,15 +20,23 @@ export default async function RootLayout({
   const topBarData = getTopBarData();
   const navigationData = getNavigation();
   const navigationSettingsData = getNavigationSettings();
+  const footerCategoriesData = getFooterCategories();
 
-  const [generalSettings, mobileMenu, topbar, navigation, navigationSettings] =
-    await Promise.all([
-      generalSettingsData,
-      mobileMenuData,
-      topBarData,
-      navigationData,
-      navigationSettingsData,
-    ]);
+  const [
+    generalSettings,
+    mobileMenu,
+    topbar,
+    navigation,
+    navigationSettings,
+    footerCategories,
+  ] = await Promise.all([
+    generalSettingsData,
+    mobileMenuData,
+    topBarData,
+    navigationData,
+    navigationSettingsData,
+    footerCategoriesData,
+  ]);
 
   return (
     <ErrorBoundary fallback={<Error />}>
@@ -53,7 +61,7 @@ export default async function RootLayout({
                 navigationSettings={navigationSettings.acf}
               />
               {children}
-              <Footer />
+              <Footer footerCategories={footerCategories.items} />
             </Suspense>
           </Providers>
         </body>
@@ -90,6 +98,11 @@ async function getNavigation() {
 }
 async function getNavigationSettings() {
   const res = await fetch("https://e-asante.pl/wp-json/acf/v3/posts/47");
+
+  return await res.json();
+}
+async function getFooterCategories() {
+  const res = await fetch("https://e-asante.pl/wp-json/menus/v1/menus/28");
 
   return await res.json();
 }

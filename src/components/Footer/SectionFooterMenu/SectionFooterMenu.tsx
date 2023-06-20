@@ -41,9 +41,7 @@ const SectionFooterMenu = () => {
         <li className="my-4 cursor-pointer hover:text-gray-300 duration-200 ease-linear">
           <Link href="/private-policy">Polityka prywatności</Link>
         </li>
-        <li className="my-4 cursor-pointer hover:text-gray-300 duration-200 ease-linear">
-          <Link href="/private-policy">Polityka prywatności</Link>
-        </li>
+        
         <li className="my-4 cursor-pointer hover:text-gray-300 duration-200 ease-linear">
           <Link href="/shiping-and-return">Warunki dostawy i zwrotów</Link>
         </li>

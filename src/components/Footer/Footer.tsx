@@ -6,7 +6,11 @@ import WhiteBtn from "../Buttons/BlackBtn/WhiteBtn";
 import SectionCategories from "./SectionCategories/SectionCategories";
 import SectionFooterMenu from "./SectionFooterMenu/SectionFooterMenu";
 
-const Footer = () => {
+interface FooterInt {
+  footerCategories: any;
+}
+
+const Footer = ({ footerCategories }: FooterInt) => {
   return (
     <footer className="bg-black text-white pt-4 md:flex md:flex-wrap md:justify-center md:items-start">
       <div className="md:w-1/4">
@@ -54,7 +58,7 @@ const Footer = () => {
           <WhiteBtn text="Zapisz się" />
         </div>
       </form>
-      <SectionCategories />
+      <SectionCategories footerCategories={footerCategories} />
       <SectionFooterMenu />
       <div className="py-4 w-10/12 mx-auto md:order-5 md:w-11/12">
         <div className="w-full  h-[1px] bg-gray-800 mb-4"></div>
