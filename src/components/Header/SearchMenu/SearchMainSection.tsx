@@ -45,11 +45,10 @@ const SearchMainSection = ({ inputValue }: SearchMainSectionInt) => {
   }
 
   const helpPhrases = categories.slice(0, 5);
-  console.log(data);
 
   return (
     <div className="absolute left-0 top-full border-x-[1px] border-b-[1px] border-solid border-gray-300 max-h-[70vh] w-full bg-white overflow-y-scroll z-20 sm:grid sm:grid-cols-2 sm:grid-rows-3 sm:max-h-[80vh]">
-      {helpPhrases !== undefined ? (
+      {data !== undefined && data.length !== 0 ? (
         <div className="col-start-1 col-end-2 row-start-1 row-end-2">
           <div className="p-4 uppercase text-gray-400 text-xs tracking-widest border-gray-300">
             Rekomendowane
@@ -69,7 +68,7 @@ const SearchMainSection = ({ inputValue }: SearchMainSectionInt) => {
         </div>
       ) : null}
 
-      {data !== undefined ? (
+      {data !== undefined && data.length !== 0 ? (
         <>
           <div className="col-start-2 col-end-3 row-start-1 row-end-3">
             <div className="p-4 uppercase text-gray-400 text-xs tracking-widest border-gray-300">

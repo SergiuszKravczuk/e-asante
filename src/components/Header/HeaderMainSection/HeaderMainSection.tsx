@@ -48,6 +48,7 @@ const HeaderMainSection = ({
       window.removeEventListener("resize", handleResize);
     };
   }, [windowWidth]);
+  
 
   const handlerIsSearchClicked = (value: boolean) => {
     setIsSearchClicked(value);
@@ -75,7 +76,7 @@ const HeaderMainSection = ({
   };
   // -----
   return (
-    <section data-testid="headerMain" className={classes.container}>
+    <section data-testid="headerMain" className={`${classes.container}`}>
       <LeftMainSection
         setIsKliked={handlerIsSearchClicked}
         windowWidth={windowWidth}

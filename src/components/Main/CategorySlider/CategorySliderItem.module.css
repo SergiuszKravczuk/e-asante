@@ -1,0 +1,8 @@
+@media (min-width: 990px) {
+  .container {
+    transition: 0.2s linear;
+  }
+  .container:hover {
+    transform: scale(1.1);
+  }
+}
