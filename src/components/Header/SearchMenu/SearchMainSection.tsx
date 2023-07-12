@@ -4,7 +4,7 @@ import { AiOutlineArrowRight } from "react-icons/ai";
 import classes from "./SearchMainSection.module.css";
 import { useRouter } from "next/navigation";
 import TextLoader from "@/components/Loader/TextLoader";
-import { useGetProductsBySearchQuery } from "@/api/general-settingsApi";
+import { useGetProductsBySearchQuery } from "@/api/wordPress-api";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -45,6 +45,27 @@ const SearchMainSection = ({ inputValue }: SearchMainSectionInt) => {
   }
 
   const helpPhrases = categories.slice(0, 5);
+  console.log(data);
+
+  if (data !== undefined) {
+    data.forEach((element: any) => {
+      if (!element.images[0].src && !element.images[0].alt) {
+        return (
+          <div className="absolute left-0 top-full border-x-[1px] border-b-[1px] border-solid border-gray-300 max-h-[70vh] w-full bg-white overflow-y-scroll z-20 sm:grid sm:grid-cols-2 sm:grid-rows-3 sm:max-h-[80vh]">
+            <div
+              className={`col-start-1 col-end-3 row-start-3 row-end-4  flex justify-between items-center cursor-pointer border-t-[1px] hover:bg-gray-100 h-10 overflow-hidden px-4 transition-colors ${classes.searchFor}`}
+              onClick={clickPushBySearchPagehandler}
+            >
+              <p>Szukaj dla "{inputValue}"</p>
+              <div className={classes.icon}>
+                <AiOutlineArrowRight />
+              </div>
+            </div>
+          </div>
+        );
+      }
+    });
+  }
 
   return (
     <div className="absolute left-0 top-full border-x-[1px] border-b-[1px] border-solid border-gray-300 max-h-[70vh] w-full bg-white overflow-y-scroll z-20 sm:grid sm:grid-cols-2 sm:grid-rows-3 sm:max-h-[80vh]">

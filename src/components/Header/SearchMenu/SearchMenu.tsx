@@ -2,7 +2,7 @@ import { GrClose } from "react-icons/gr";
 import classes from "./SearchMenu.module.css";
 import { AiOutlineSearch } from "react-icons/ai";
 import SearchMainSection from "./SearchMainSection";
-import { ChangeEvent, ReactEventHandler, useState } from "react";
+import { ChangeEvent, useState } from "react";
 
 interface SearchMenuInt {
   setIsKliked: (value: boolean) => void;

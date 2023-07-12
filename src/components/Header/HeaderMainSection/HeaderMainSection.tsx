@@ -6,6 +6,7 @@ import { useAppDispatch, useAppSelector } from "@/app/GlobalRedux/store";
 
 import { setIsCliked } from "@/app/GlobalRedux/CartSlice/CartSlice";
 import { selectIsCartDropDownClicked } from "@/app/GlobalRedux/CartSlice/CartSlice";
+import { selectCartQuantity } from "@/app/GlobalRedux/CartSlice/CartSlice";
 
 import LeftMainSection from "../LeftMainSection/LeftMainSection";
 import MobileMenu from "../MobileMenu/MobileMenu";
@@ -34,6 +35,7 @@ const HeaderMainSection = ({
   const [isSearchClicked, setIsSearchClicked] = useState<boolean>(false);
   const dispatch = useAppDispatch();
   const isCartClicked = useAppSelector(selectIsCartDropDownClicked);
+  const cartQuantity = useAppSelector(selectCartQuantity);
 
   useEffect(() => {
     const handleResize = () => {
@@ -48,7 +50,6 @@ const HeaderMainSection = ({
       window.removeEventListener("resize", handleResize);
     };
   }, [windowWidth]);
-  
 
   const handlerIsSearchClicked = (value: boolean) => {
     setIsSearchClicked(value);
@@ -103,12 +104,24 @@ const HeaderMainSection = ({
         >
           <AiOutlineUser />
         </Link>
-        <div
-          className="cursor-pointer hover:scale-125 duration-200 linear"
-          onClick={cartDropDownHandler}
-        >
-          <CgShoppingBag />
-        </div>
+        {cartQuantity > 0 ? (
+          <div
+            className="cursor-pointer hover:scale-125 duration-200 linear relative"
+            onClick={cartDropDownHandler}
+          >
+            <CgShoppingBag />
+            <div className="absolute -top-[6px] -right-[4px] w-4 h-4 text-[.7rem] bg-black text-white flex justify-center items-center rounded-full ">
+              {cartQuantity}
+            </div>
+          </div>
+        ) : (
+          <div
+            className="cursor-pointer hover:scale-125 duration-200 linear"
+            onClick={cartDropDownHandler}
+          >
+            <CgShoppingBag />
+          </div>
+        )}
       </div>
       {windowWidth < 990 ? <MobileMenu /> : ""}
       {isSearchClicked && <SearchMenu setIsKliked={handlerIsSearchClicked} />}

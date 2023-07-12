@@ -3,8 +3,7 @@
 import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import { combineReducers } from 'redux';
-import { generalSettingsApi } from '@/api/general-settingsApi';
-import thunkMiddleware from "redux-thunk";
+import { wordpressApi } from '@/api/wordPress-api';
 
 
 import HumburgerReducer from './HumburgerSlice/HumburgerSlice';
@@ -16,12 +15,12 @@ const rootReducer = combineReducers({
   humburger: HumburgerReducer,
   mobileMenu: MobileMenuReducer,
   cart: CartReducer,
-  [generalSettingsApi.reducerPath]: generalSettingsApi.reducer,
+  [wordpressApi.reducerPath]: wordpressApi.reducer,
 });
 
 export const store = configureStore({
   reducer: rootReducer,
-  middleware: getDefaultMiddleware().concat(thunkMiddleware, generalSettingsApi.middleware),
+  middleware: getDefaultMiddleware().concat(wordpressApi.middleware),
 });
 
 export type RootState = ReturnType<typeof rootReducer>;
